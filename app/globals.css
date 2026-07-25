@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: 59 130 246;
+  --color-secondary: 16 185 129;
+  --color-background: 255 255 255;
+  --color-text: 31 41 55;
+}
+
+.dark {
+  --color-background: 17 24 39;
+  --color-text: 243 244 246;
+}
+
+body {
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-text));
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
