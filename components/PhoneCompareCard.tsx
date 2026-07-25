@@ -1,10 +1,7 @@
 import type { Phone } from "@/lib/types";
 import clsx from "clsx";
 
-export type ComparablePhone = Pick
-  Phone,
-  "id" | "brand" | "model" | "ram_gb" | "storage_gb" | "price" | "condition"
->;
+export type ComparablePhone = Pick<Phone, "id" | "brand" | "model" | "ram_gb" | "storage_gb" | "price" | "condition">;
 
 type ComparisonRow = {
   label: string;
