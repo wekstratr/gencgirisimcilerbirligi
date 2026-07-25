@@ -1,10 +1,15 @@
 import type { Phone } from "@/lib/types";
 import clsx from "clsx";
 
+export type ComparablePhone = Pick
+  Phone,
+  "id" | "brand" | "model" | "ram_gb" | "storage_gb" | "price" | "condition"
+>;
+
 type ComparisonRow = {
   label: string;
-  getValue: (p: Phone) => string;
-  getComparable: (p: Phone) => number;
+  getValue: (p: ComparablePhone) => string;
+  getComparable: (p: ComparablePhone) => number;
   higherIsBetter: boolean;
 };
 
@@ -55,7 +60,7 @@ function Arrow({ direction }: { direction: "left" | "right" | "none" }) {
  * Mobile-first side-by-side comparison table. For each spec row, an arrow
  * points at the winning device (e.g. higher RAM, lower price).
  */
-export function PhoneCompareCard({ left, right }: { left: Phone; right: Phone }) {
+export function PhoneCompareCard({ left, right }: { left: ComparablePhone; right: ComparablePhone }) {
   return (
     <div className="w-full overflow-hidden rounded-2xl bg-surface-bg shadow">
       <div className="grid grid-cols-2 gap-2 border-b border-primary/10 p-4 text-center">
