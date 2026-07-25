@@ -1,10 +1,9 @@
 import type { Phone } from "@/lib/types";
 import clsx from "clsx";
 
-export type ComparablePhone = Pick
-  Phone,
-  "id" | "brand" | "model" | "ram_gb" | "storage_gb" | "price" | "condition"
->;
+// Only the fields this card actually renders - lets callers pass a partial
+// Supabase `select(...)` result without needing every Phone column.
+export type ComparablePhone = Pick<Phone, "id" | "brand" | "model" | "ram_gb" | "storage_gb" | "price" | "condition">;
 
 type ComparisonRow = {
   label: string;
